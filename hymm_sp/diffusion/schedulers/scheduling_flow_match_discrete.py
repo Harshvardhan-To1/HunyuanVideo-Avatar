@@ -172,6 +172,7 @@ class FlowMatchDiscreteScheduler(SchedulerMixin, ConfigMixin):
         return sample
 
     def sd3_time_shift(self, t: torch.Tensor):
+        self.config.shift = 5.0
         return (self.config.shift * t) / (1 + (self.config.shift - 1) * t)
 
     def step(
